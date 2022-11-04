@@ -10,14 +10,10 @@ import lombok.NoArgsConstructor;
 public class PostsUpdateRequestDto {
     private String title;
     private String content;
-    private String author;
-    private Long id;
 
-    public PostsUpdateRequestDto(Posts entity){
-        this.id = entity.getId();
-        this.title =entity.getTitle();
-        this.content = entity.getContent();
-        this.author = entity.getAuthor();
+    public PostsUpdateRequestDto(String title, String content){
+        this.title = title;
+        this.content = content;
     }
 
 }

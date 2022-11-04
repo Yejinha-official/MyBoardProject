@@ -2,6 +2,7 @@ package com.yejin.official.board.service;
 
 import com.yejin.official.board.domain.posts.Posts;
 import com.yejin.official.board.domain.posts.PostsRepository;
+import com.yejin.official.board.web.dto.PostsResponseDto;
 import com.yejin.official.board.web.dto.PostsSaveRequestDto;
 import com.yejin.official.board.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -23,5 +24,10 @@ public class PostsService {
         posts.update(requestDto.getTitle(), requestDto.getContent());
 
         return id;
+    }
+
+    public PostsResponseDto findById (Long id){
+        Posts entity = postsRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("There's no post on that id : "+id));
+        return new PostsResponseDto(entity);
     }
 }

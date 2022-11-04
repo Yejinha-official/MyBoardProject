@@ -1,6 +1,7 @@
 package com.yejin.official.board.web;
 
 import com.yejin.official.board.service.PostsService;
+import com.yejin.official.board.web.dto.PostsResponseDto;
 import com.yejin.official.board.web.dto.PostsSaveRequestDto;
 import com.yejin.official.board.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,11 @@ public class PostsApiController {
     @PutMapping("/api/v1/posts/{id}")
     public Long update(@PathVariable Long id,  @RequestBody PostsUpdateRequestDto requestDto){
         return postsService.update(id, requestDto);
+    }
+
+    @GetMapping("/api/v1/posts/{id}")
+    public PostsResponseDto findById (@PathVariable Long id){
+        return postsService.findById(id);
     }
 
 }
