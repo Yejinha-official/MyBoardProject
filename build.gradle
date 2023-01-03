@@ -23,6 +23,7 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     testImplementation('io.rest-assured:rest-assured:4.4.0')
     compileClasspath('org.springframework.boot:spring-boot-starter-mustache')
+    compileClasspath('org.springframework.boot:spring-boot-starter-oauth2-client')
 }
 
 test {
