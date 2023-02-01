@@ -1,1 +1,0 @@
-web: java -jar \ -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/app/applcation-oauth.properties,/app/application-real-db.properties \-Dspring.profiles.active=real
