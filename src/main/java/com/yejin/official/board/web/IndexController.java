@@ -1,5 +1,6 @@
 package com.yejin.official.board.web;
 
+import com.yejin.official.board.config.auth.LoginUser;
 import com.yejin.official.board.config.auth.dto.SessionUser;
 import com.yejin.official.board.service.PostsService;
 import com.yejin.official.board.web.dto.PostsResponseDto;
@@ -24,15 +25,14 @@ public class IndexController {
     }
 
     @GetMapping("/")
-    public String index(Model model){
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
-        SessionUser user = (SessionUser) httpSession.getAttribute("User");
-
-        if(user !=null){
-            model.addAttribute("userName",user.getName());
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
         }
         return "index";
     }
+
 
     @GetMapping("/posts/save")
     public String postsSave(){return "posts-save"; }
